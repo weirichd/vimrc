@@ -8,12 +8,26 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-Plugin 'davidhalter/jedi-vim'
+Plugin 'preservim/nerdcommenter'
+Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'preservim/tagbar'
 
 call vundle#end()
 filetype plugin indent on
 
 syntax on
+
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_extra_args = [
+            \ '--tag-relative=yes',
+            \ '--fields=+ailmnS',
+            \ '--language=python',
+            \ '--python-kinds=iv'
+            \ ]
 
 let mapleader = ","
 
@@ -49,16 +63,17 @@ nnoremap <leader>sv :source ~/.vimrc<cr>
 
 nnoremap <leader>n :nohl<cr>
 
-nnoremap <leader>/ :s,^,//,<cr>:nohl<cr>
-nnoremap <C-_> :s,//,,<cr>:nohl<cr>
-nnoremap <leader>s :%s/\<<C-r><C-w>\>/
+" copy into clipboard
+vnoremap <leader>c "*y
 
-vnoremap <leader>/ :s,^,//,<cr>:nohl<cr>
-vnoremap <C-_> :s,//,,<cr>:nohl<cr>
+" Suround things with quotes
 vnoremap <leader>" xi""<esc>hp
 
+" Remove unwanted white spaces
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-nnoremap <F2> :!clear<cr>:!make && valgrind --error-exitcode=1 -q --leak-check=full ./test/test_suite<cr>
+
+" Make c project
+autocmd FileType c,cpp nnoremap <buffer> <F2> :!clear<cr>:!make && valgrind --error-exitcode=1 -q --leak-check=full ./test/test_suite<cr>
 
 command! W w
 command! Q q
