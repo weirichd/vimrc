@@ -12,6 +12,7 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'preservim/tagbar'
+Plugin 'junegunn/gv.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -22,12 +23,6 @@ let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_empty_buffer = 0
-let g:gutentags_ctags_extra_args = [
-            \ '--tag-relative=yes',
-            \ '--fields=+ailmnS',
-            \ '--language=python',
-            \ '--python-kinds=iv'
-            \ ]
 
 let mapleader = ","
 
