@@ -13,6 +13,7 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'preservim/tagbar'
 Plugin 'junegunn/gv.vim'
+Plugin 'sillybun/vim-repl'
 
 call vundle#end()
 filetype plugin indent on
@@ -23,6 +24,18 @@ let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_empty_buffer = 0
+
+" Settings for vim-repl
+let g:repl_program = {
+            \   'python': 'ipython',
+            \   'pytnon-debug': 'ipdb3',
+            \   'default': 'zsh',
+            \   'r': 'R',
+            \   'lua': 'lua',
+            \   'vim': 'vim -e',
+            \   }
+
+autocmd FileType python nnoremap <leader>r :REPLToggle<CR>
 
 let mapleader = ","
 
