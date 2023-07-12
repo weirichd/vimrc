@@ -14,9 +14,17 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'preservim/tagbar'
 Plugin 'junegunn/gv.vim'
 Plugin 'sillybun/vim-repl'
+Plugin 'alfredodeza/pytest.vim'
+Plugin 'mechatroner/rainbow_csv'
+
 
 call vundle#end()
 filetype plugin indent on
+filetype on
+filetype plugin on
+
+filetype on
+filetype plugin on
 
 syntax on
 
@@ -59,6 +67,7 @@ set hlsearch
 set number
 
 inoremap jk <esc>
+inoremap lenght length
 
 nnoremap <S-up> <nop>
 nnoremap <S-down> <nop>
@@ -85,3 +94,5 @@ autocmd FileType c,cpp nnoremap <buffer> <F2> :!clear<cr>:!make && valgrind --er
 
 command! W w
 command! Q q
+
+au BufNewFile,BufRead *.jenkinsfile setf groovy
