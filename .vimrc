@@ -16,7 +16,7 @@ Plugin 'junegunn/gv.vim'
 Plugin 'sillybun/vim-repl'
 Plugin 'alfredodeza/pytest.vim'
 Plugin 'mechatroner/rainbow_csv'
-
+Plugin 'terrastruct/d2-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,6 +32,7 @@ let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_exclude = ['*.json']
 
 " Settings for vim-repl
 let g:repl_program = {
@@ -96,3 +97,8 @@ command! W w
 command! Q q
 
 au BufNewFile,BufRead *.jenkinsfile setf groovy
+
+colorscheme default
+
+
+set statusline+=%{gutentags#statusline()}
