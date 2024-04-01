@@ -67,6 +67,9 @@ set hlsearch
 
 set number
 
+" Disable opening help
+nmap <F1> <nop>
+
 inoremap jk <esc>
 inoremap lenght length
 
@@ -102,3 +105,4 @@ colorscheme default
 
 
 set statusline+=%{gutentags#statusline()}
+let g:mkdp_auto_open = 1
